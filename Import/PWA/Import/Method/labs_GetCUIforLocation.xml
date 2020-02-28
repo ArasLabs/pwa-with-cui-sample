@@ -1,0 +1,25 @@
+﻿<AML>
+ <Item type="Method" id="12C79A90A8304865A6B707C9612DDE1F" action="add">
+  <execution_allowed_to keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</execution_allowed_to>
+  <method_code><![CDATA[Innovator inn = this.getInnovator();
+
+string location = this.getProperty("location", "");
+if (string.IsNullOrEmpty(location))
+{
+    return inn.newError("Please provide location.");
+}
+
+Item cbs = inn.newItem("CommandBarSection", "get");
+cbs.setAttribute("select", "id,name,location,classification");
+Item cbsLoc = cbs.createPropertyItem("location", "cui_Location", "get");
+cbsLoc.setAttribute("select", "name,id");
+cbsLoc.setProperty("name", location);
+
+Item cbsItems = cbs.createRelationship("CommandBarSectionItem", "get");
+cbsItems.setAttribute("select", "action,role,sort_order,related_id(name,label,additional_data,tooltip_template,on_click_handler(method_code,method_type),on_init_handler(method_code,method_type)),alternate(name)");
+
+return cbs.apply();]]></method_code>
+  <method_type>C#</method_type>
+  <name>labs_GetCUIforLocation</name>
+ </Item>
+</AML>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="My InBasket" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="My InBasket" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="images/icons/icon-144x144.png">
+    <meta name="msapplication-starturl" content="/index.html" /> 
+    <meta name="msapplication-TileImage" content="images/icons/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="Description" content="Application for managing CUI items">
+    <meta name="theme-color" content="#55aaff" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <title>My InBasket</title>
+
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css" >
+    <script type="application/javascript" src='scripts/ThirdParty/md5.min.js' ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper row">
+                <div class="col s12">
+                    <a href="#" data-target="sidenav" class="left sidenav-trigger hide-on-medium-and-up"><i class="material-icons">menu</i></a>
+                    <span class="brand-logo">My InBasket</span>
+                    <ul id="nav-mobile" class="right">
+                        <li>
+                            <a href="#" id="logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-full-height">        
+        <div class="row">
+            <div id="myInBasketItem" class="col s12 content-full-height">
+                <div class="manage-items-toolbar-container">
+                </div>
+                <div class="row">
+                    <div id="myInBasketItemRowContainer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals section -->
+    <div id="loginModal" class="modal">
+        <div class="modal-header">
+            <h5>Login</h5>
+        </div>
+        <div class="modal-content">
+            <form name="loginToInnovatorForm">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Enter Server Url" name="server" id="server" type="text">
+                        <label class="active" for="server">Server Url</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s10 l11">
+                        <select name="database" id="database"></select>
+                        <label class="active" for="database">Database Name</label>
+                    </div>
+                    <div class="input-field col s2 l1">
+                        <span id="loadDatabaseId" class="waves-effect waves-light btn btn-floating disabled"><i class="material-icons">add</i></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Enter Username" name="username" id="username" type="text">
+                        <label class="active" for="username">Username</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Enter Password" name="password" id="password" type="password">
+                        <label class="active" for="password">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="input-field col s12 right">
+                        <input name="rememberMe" id="rememberMe" type="checkbox" />
+                        <span for="rememberMe">Remember Me</span>
+                    </label>
+                </div>
+            <form>
+        </div>    
+        <div class="modal-footer">
+            <span class="acceptBtn waves-effect waves-green btn-flat">Login</span>
+        </div>
+    </div>
+
+    <div id="workflowActivityCompletionModal" class="modal">
+        <div class="modal-header">
+            <span class="right cancelBtn"><i class="material-icons">clear</i></span>
+            <h5>Workflow Activity Completion</h5>
+        </div>
+        <div class="modal-content">
+        </div>    
+        <div class="modal-footer">
+            <span class="acceptBtn waves-effect waves-green btn-flat">Complete</span>
+            <span class="saveChangesBtn waves-effect waves-green btn-flat">Save Changes</span>
+            <span class="cancelBtn waves-effect waves-red btn-flat">Cancel</span>
+        </div>
+    </div>
+    
+    <div id="showItemModal" class="modal">
+        <div class="modal-header">
+            <span class="right cancelBtn"><i class="material-icons">clear</i></span>
+            <h5>Show Item</h5>
+        </div>
+        <div class="modal-content">
+        </div>
+        <div class="modal-footer">
+            <span class="cancelBtn waves-effect waves-red btn-flat">Close</span>
+        </div>
+    </div>
+    <!-- End of section -->   
+
+    <!-- Templates section -->
+
+    <template id="showMyInBasketItemTemplate">
+        <div>            
+            <div class="row myInBasketRow">
+                <div class="col s4">
+                    <label class="active" for="workItemNumber">Work Item:</label>
+                </div>
+                <div class="col s8">
+                    <b><span data-property-binding='workItemNumber'></span></b>
+                </div>
+
+                <div class="col s4">
+                    <label class="active" for="activity">Activity:</label>
+                </div>
+                <div class="col s8">
+                    <span data-property-binding='activity'></span>
+                </div>
+
+                <div class="col s4">
+                    <label class="active" for="instructions">Instructions:</label>
+                </div>
+                <div class="col s8">
+                    <span data-property-binding='instructions'></span>
+                </div>
+            </div>
+            <br />
+            <i class="detailLabel"><span data-property-binding='workItemType'></span> details: </i>
+            <div class="row" id="workItemDetailsContainer"></div>
+        </div>
+    </template>
+
+    <template id="myInBasketItemRowTemplate">
+        <tr data-event-handler="showItem" data-event-type="dblclick" class="myInBasketRow">
+            <td><span data-property-binding='type' data-tooltip></span></td>
+            <td><span data-property-binding='activity' data-tooltip></span></td>
+            <td><span data-property-binding='assigned_to' data-tooltip></span></td>
+            <td><span data-property-binding='instructions' data-tooltip></span></td>
+            <td><span data-property-binding='status' data-tooltip></span></td>
+            <td><span data-property-binding='workItemNumber' data-tooltip></span></td>
+            <td class="manage-item-row-buttons-container">
+            </td>
+        </tr>
+    </template>
+
+    <template id="myInBasketItemCardTemplate">
+        <div class="col s12 l6">
+            <div class="card sticky-action lighten-4" data-class-binding="due_status">
+                <div class="card-content">
+                    <div class="row item-info" data-class-binding="due_status" data-class-modifier="-border">
+                        <div class="col s8 card-title text-bold" data-property-binding='workItemNumber'></div> 
+                        <div class="col s4 flow-text right-align text-darken-4 text-bold" data-class-binding="due_status" data-class-modifier="-text" data-property-binding="days_til_due"></div>
+                    </div>
+                    <div class="row item-details">
+                        <div class="col s12 l6 flow-text text-italic" data-property-binding='activity'></div>
+                        <div class="col s12 flow-text text-lighter instructions" data-property-binding='instructions'></div>
+                    </div>
+                    <div class="row due-date-details" data-class-binding="due_status" data-class-modifier="-border">
+                        <div class="col s6 l8 flow-text" data-property-binding='type'></div>
+                        <div class="col s6 l4">
+                            <span class='date-label text-italic'>Due</span>
+                            <span class='flow-text' data-property-binding='short_due_date'></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-action manage-item-row-buttons-container">
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="activityTaskRowTemplate">
+        <tr>
+            <td class="text-center"><span data-property-binding='sequence' data-tooltip></span></td>
+            <td class="text-center">
+                <label>
+                    <input type="checkbox" data-attribute-binding='id' data-attribute-name='id' data-property-binding='is_required' disabled="disabled"/>
+                    <span data-attribute-binding='id' data-attribute-name='for'></span>
+                </label>
+            </td>
+            <td class="text-center"><span data-property-binding='description' data-tooltip></span></td>
+            <td class="text-center">
+                <label>
+                    <input type="checkbox" data-attribute-binding='id' data-attribute-name='id' data-property-binding='is_completed'/>
+                    <span data-attribute-binding='id' data-attribute-name='for'></span>
+                </label>
+            </td>
+        </tr>
+    </template>
+
+    <template id="workItemDetailsTemplate">
+        <div class="col s4 l2 prop-label">
+            <span>Number:</span>
+        </div>
+        <div class="col s8 l4" class="prop-label">
+            <span data-property-binding='item_number'></span>
+        </div>
+        <div class="col s4 l2 prop-label">
+            <span>Title:</span>
+        </div>
+        <div class="col s8 l4">
+            <span data-property-binding='title'></span class="flow-text">
+        </div>
+        <div class="col s4 l2 prop-label">
+            <span>Status:</span>
+        </div>
+        <div class="col s8 l4">
+            <span data-property-binding='status'></span>
+        </div>
+        <div class="col s4 l2 prop-label">
+            <span>Reason:</span>
+        </div>
+        <div class="col s8 l4">
+            <span data-property-binding='reason'></span>
+        </div>
+        <div class="col s4 l2 prop-label">
+            <span>Priority:</span>
+        </div>
+        <div class="col s8 l4">
+            <span data-property-binding='priority'></span>
+        </div>
+        <div class="col s4 l2 prop-label">
+            <span>Description:</span>
+        </div>
+        <div class="col s8 l4">
+            <span data-property-binding='description'></span>
+        </div>
+        <div class="col s4 l2 prop-label">
+            <span>Start Date:</span>
+        </div>
+        <div class="col s8 l4">
+            <span data-property-binding='start_date'></span>
+        </div>
+        <div class="col s4 l2 prop-label">
+            <span>Due Date:</span>
+        </div>
+        <div class="col s8 l4">
+            <span data-property-binding='due_date'></span>
+        </div>
+    </template>
+
+    <template id="workflowActivityCompletionTemplate">
+        <div>
+            <div class="row myInBasketRow">
+                <div class="col s4">
+                    <label class="active" for="workItemNumber">Workflow :</label>
+                </div>
+                <div class="col s8">
+                    <b><span data-property-binding='workItemNumber'></span></b>
+                </div>
+
+                <div class="col s4">
+                    <label class="active" for="activity">Activity :</label>
+                </div>
+                <div class="col s8">
+                    <span data-property-binding='activity'></span>
+                </div>
+                <hr>
+            </div>
+
+            <div class="row">
+                <table class="highlight">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Sequence</th>
+                            <th class="text-center">Required</th>
+                            <th class="text-center wide">Description</th>
+                            <th class="text-center">Complete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="activityTasksRowContainer">
+                    </tbody>
+                </table>
+            </div>
+     
+            <div class="row activityTaskContainer">
+                <div class="input-field col s12">
+                    <select name="activityTask" id="activityTask"></select>
+                    <label class="active" for="activityTask">Workflow Process Path</label>
+                </div>
+                <hr>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea data-model-property-binding='activityItem.activityAssignment.comments' class="materialize-textarea"></textarea>
+                    <label for="comments">Comments</label>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <!-- End of section -->
+
+    <!-- Scripts section -->
+    <script src="scripts/app.js" type="module"></script>
+    <!-- End of section -->
+</body>
+</html>

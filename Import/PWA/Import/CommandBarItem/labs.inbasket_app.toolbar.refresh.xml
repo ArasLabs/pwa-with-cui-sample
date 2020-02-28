@@ -1,0 +1,25 @@
+﻿<AML>
+ <Item type="CommandBarButton" id="5383BD7B61174E3B8D6332A437B8BF4E" action="add">
+  <additional_data>{
+    "icon": "refresh",
+    "attributes" : [
+        {
+            "name" : "class",
+            "value" : "addNewItem waves-effect waves-light btn btn-floating"
+        }
+    ]
+}</additional_data>
+  <on_click_handler keyed_name="inbasket_toolbar_refresh_click" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>inbasket_toolbar_refresh_click</name>
+   </Item>
+  </on_click_handler>
+  <on_init_handler keyed_name="inbasket_toolbar_refresh_init" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>inbasket_toolbar_refresh_init</name>
+   </Item>
+  </on_init_handler>
+  <tooltip_template xml:lang="en">Refresh</tooltip_template>
+  <name>labs.inbasket_app.toolbar.refresh</name>
+ </Item>
+</AML>

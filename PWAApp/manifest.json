@@ -1,0 +1,31 @@
+{
+    "short_name": "My InBasket",
+    "name": "My InBasket",
+    "icons": [
+        {
+            "src": "images/icons/icon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "images/icons/icon-64x64.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        },
+        {
+            "src": "images/icons/icon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "images/icons/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "./",
+    "scope": ".",
+    "display": "standalone",
+    "background_color": "#77ccff",
+    "theme_color": "#55aaff"
+  }

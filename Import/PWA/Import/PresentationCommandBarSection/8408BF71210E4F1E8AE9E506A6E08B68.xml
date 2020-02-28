@@ -1,0 +1,25 @@
+﻿<AML>
+ <Item type="PresentationCommandBarSection" id="8408BF71210E4F1E8AE9E506A6E08B68" action="add">
+  <related_id keyed_name="labs.inbasket_app.toolbar" type="CommandBarSection">
+   <Item type="CommandBarSection" id="B5269B3347474EE0978AA52DF936AD98" action="add">
+    <classification>Data Model</classification>
+    <description />
+    <label xml:lang="en">InBasket App Toolbar</label>
+    <location keyed_name="PWA.Toolbar" type="cui_Location">A48F8B6117BC4B5BB6227CF32EB7232B</location>
+    <name>labs.inbasket_app.toolbar</name>
+    <Relationships>
+     <Item type="CommandBarSectionItem" id="CF497B28ADD1495EBDABD466F74B5FE4" action="add">
+      <action>Add</action>
+      <related_id keyed_name="labs.inbasket_app.toolbar.refresh" type="CommandBarItem">5383BD7B61174E3B8D6332A437B8BF4E</related_id>
+      <role keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</role>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="labs.inbasket_app.toolbar" type="CommandBarSection">B5269B3347474EE0978AA52DF936AD98</source_id>
+     </Item>
+    </Relationships>
+   </Item>
+  </related_id>
+  <role keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</role>
+  <sort_order>10368</sort_order>
+  <source_id keyed_name="Global" type="PresentationConfiguration">5A87757EBFB7430C847CF4DF5ACA6F4E</source_id>
+ </Item>
+</AML>

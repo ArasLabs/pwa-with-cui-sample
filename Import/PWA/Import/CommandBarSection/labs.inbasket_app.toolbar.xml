@@ -1,0 +1,25 @@
+﻿<AML>
+ <Item type="CommandBarSection" id="CDEA7C67517D44E38EDD757181ADD902" action="add">
+  <classification>Data Model</classification>
+  <description />
+  <label xml:lang="en">InBasket App</label>
+  <location keyed_name="PWA.ItemEntry" type="cui_Location">DEE23BA460644EA58BEAF0B6B6C07647</location>
+  <name>labs.inbasket_app.toolbar</name>
+  <Relationships>
+   <Item type="CommandBarSectionItem" id="7F253D6B53F948B78CBD76FA3FD3C1E4" action="add">
+    <action>Add</action>
+    <related_id keyed_name="labs.inbasket_app.showItem" type="CommandBarItem">8C09CF55E80244BA8A626731694BA2FB</related_id>
+    <role keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</role>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="labs.inbasket_app.toolbar" type="CommandBarSection">CDEA7C67517D44E38EDD757181ADD902</source_id>
+   </Item>
+   <Item type="CommandBarSectionItem" id="7A0D3641E56E465AA065A62AAA98541B" action="add">
+    <action>Add</action>
+    <related_id keyed_name="labs.inbasket_app.voteItem" type="CommandBarItem">1293563E8F8344A28A620D9078D36CD6</related_id>
+    <role keyed_name="World" type="Identity">A73B655731924CD0B027E4F4D5FCC0A9</role>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="labs.inbasket_app.toolbar" type="CommandBarSection">CDEA7C67517D44E38EDD757181ADD902</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

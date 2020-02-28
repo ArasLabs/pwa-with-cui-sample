@@ -1,0 +1,26 @@
+﻿<AML>
+ <Item type="CommandBarButton" id="1293563E8F8344A28A620D9078D36CD6" action="add">
+  <additional_data>{
+    "icon": "touch_app",
+    "attributes" : [
+        {
+            "name" : "class",
+            "value" : "btn"
+        }
+    ]
+}</additional_data>
+  <label xml:lang="en">Vote Item</label>
+  <on_click_handler keyed_name="inbasket_entry_voteitem_click" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>inbasket_entry_voteitem_click</name>
+   </Item>
+  </on_click_handler>
+  <on_init_handler keyed_name="inbasket_entry_voteitem_init" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>inbasket_entry_voteitem_init</name>
+   </Item>
+  </on_init_handler>
+  <tooltip_template xml:lang="en">Vote Item</tooltip_template>
+  <name>labs.inbasket_app.voteItem</name>
+ </Item>
+</AML>

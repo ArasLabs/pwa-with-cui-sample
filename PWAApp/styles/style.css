@@ -1,0 +1,159 @@
+body {
+  color: rgba(0,0,0,0.87);
+}
+
+html, body, main {
+  height:100%;
+}
+
+nav {
+  background-color: #cc1c1c;
+}
+
+table {
+  table-layout: fixed;
+}
+
+th, td {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .content-full-height {
+    height: calc(100vh - 56px);
+  }
+}
+
+li.tab.side {
+  display: block;
+  text-align: inherit;
+  text-transform: inherit;
+}
+
+li.tab.side a {
+  color: inherit;
+  padding: 0 32px;
+}
+
+.material-icons {
+  cursor: pointer;
+}
+
+.manage-items-toolbar-container {
+  margin-top: 10px;
+}
+
+.modal-header {
+  margin-left: 10px;
+}
+
+.sidebar-logo {
+  margin: 0 10px -10px 0;
+}
+
+.content-full-height {
+  height: calc(100vh - 64px);
+}
+
+.content-full-height .row {
+  margin-bottom: 0;
+}
+
+#aras {
+  background-image: url('../images/aras-innovator.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.myInBasketRow {
+  border-left: 10px solid red;
+  padding-left: -10px;
+}
+
+.row .col {
+  min-height: 22.5px;
+}
+
+.detailLabel {
+  font-size: smaller;
+}
+
+.activityTaskContainer {
+  margin-top: 45px;
+}
+
+.item-card-section {
+  display: inline-block;
+}
+
+.due-date {
+  float: right;
+}
+
+.activity-label {
+  margin-bottom: 20px;
+}
+
+.text-bold {
+  font-weight: bold !important;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-lighter {
+  font-weight: lighter;
+}
+
+.item-info {
+  border-bottom: 1px solid;
+}
+
+.due-date-details {
+  border-top: 1px solid;
+}
+
+.red-border {
+  border-color: red;
+}
+
+.orange-border {
+  border-color: orange;
+}
+
+.green-border {
+  border-color: green;
+}
+
+.date-label {
+  vertical-align: top;
+}
+
+.instructions {
+  margin-bottom: 1rem;
+}
+
+.prop-label {
+  text-align: right;
+  vertical-align: top;
+  font-weight: lighter;
+  font-style: italic;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.wide {
+  width: 50%;
+}

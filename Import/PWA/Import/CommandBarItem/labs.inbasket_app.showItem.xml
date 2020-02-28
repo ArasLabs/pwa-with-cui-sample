@@ -1,0 +1,21 @@
+﻿<AML>
+ <Item type="CommandBarButton" id="8C09CF55E80244BA8A626731694BA2FB" action="add">
+  <additional_data>{
+    "icon": "remove_red_eye",
+    "attributes" : [
+        {
+            "name" : "class",
+            "value" : "btn"
+        }
+    ]
+}</additional_data>
+  <label xml:lang="en">Show Item</label>
+  <on_click_handler keyed_name="inbasket_entry_showitem_click" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>inbasket_entry_showitem_click</name>
+   </Item>
+  </on_click_handler>
+  <tooltip_template xml:lang="en">Show Item</tooltip_template>
+  <name>labs.inbasket_app.showItem</name>
+ </Item>
+</AML>
